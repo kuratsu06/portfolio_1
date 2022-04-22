@@ -1,0 +1,7 @@
+default: &default
+  adapter: mysql
+  encoding: uft8
+  username: root
+  password: password
+  host: db
+  port: 3306
