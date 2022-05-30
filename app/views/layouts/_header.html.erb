@@ -3,5 +3,20 @@
     <%= link_to "らくちんネット", root_path, class: "site_logo" %>
   </div>
   <div class="header_bar_right">
+    <div class="user_login">
+      <% if user_signed_in? %>
+        <div class="after_login">
+          <div>
+            <p class="guest_name">ようこそ、<%= current_user.name %>さん</p>
+          </div>
+          <div class="link_user">
+            <%= link_to "お買い物をやめる", destroy_user_session_path, method: :delete, class: "login" %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "登録がお済みの方", new_user_session_path, class: "login" %>
+        <%= link_to "新しく登録する方", new_user_registration_path, class: "login" %>
+      <% end %>
+    </div>
   </div>
 </div>
