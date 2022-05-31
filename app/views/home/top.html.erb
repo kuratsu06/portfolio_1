@@ -2,5 +2,17 @@
   <%= render 'home/side_bar' %>
   <div class="main_content">
     <p class="notice"><%= notice %></p>
+    <div>
+      <% @categories.roots.each do |category| %>
+        <div class="category_bar"><%= category.name %> <おすすめ商品></div>
+        <div class="product_box">
+          <%= link_to product_path(@product) do %>
+            <% category.products.shuffle.first(4).each do |product| %>
+              <%= product.name %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 <div>

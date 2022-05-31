@@ -1,2 +1,24 @@
 <div class="side_bar">
+  <div class="search">
+    <p class="guide">探したい商品を入力して検索を押してください</p>
+    <div class="search_field">
+      <%= form_tag products_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search], placeholder: "商品を探す..." %>
+        <%= submit_tag '検索', :name => nil %>
+      <% end %>
+    </div>
+  </div>
+  <p class="guide">探したい商品カテゴリを押してください</p>
+  <% @categories.roots.each do |category| %>
+    <details>
+      <summary><div class="category_name"><%= category.name %></div></summary>
+      <ul>
+        <%= link_to products_path do %>
+          <% category.children.each do |children| %>
+            <li class="product_name"><%= children.name %><span class="count">(<%= children.products.count %>)</span></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </details>
+  <% end %>
 </div>

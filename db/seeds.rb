@@ -51,3 +51,4 @@ drink_6 = drink.children.create(name: "中国茶")
 drink_7 = drink.children.create(name: "紅茶")
 
 others = Category.create(name: "その他・食品以外（雑貨など）")
+others_1 = others.children.create(name: "その他・食品以外（雑貨など）")
