@@ -1,10 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @product %>
-
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <p class="notice"><%= notice %></p>
+    <div class="product_show_title">
+      <h2>- <%= @product.name %> -</h2>
+      <div class='favorite_btn'>
+      <% if @product.favorited_by?(current_user) %>
+        <%= button_to product_favorites_path(@product), method: :delete do %>
+          <p>★ お気に入りを解除する</p>
+        <% end %>
+      <% else %>
+        <%= button_to product_favorites_path(@product), method: :post do %>
+          <p>☆ お気に入りに登録する</p>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+    <div class="show_back">
+      <%= link_to "◀︎ 一覧に戻る", products_path, class: "show_back" %>
+    </div>
+    <div class="product_box">
+      <%= render @product %>
+    </div>
+  </div>
 </div>

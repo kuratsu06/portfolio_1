@@ -1,22 +1,31 @@
 <div id="<%= dom_id product %>">
-  <p>
-    <strong>Category:</strong>
-    <%= product.category_id %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
+  <% if (controller.action_name == 'index') %>
+    <div class="product_index_box">
+      <div class="product_index_box_img">
+        <p>no image</p>
+        <!--%= image_tag image.image.url %-->
+      </div>
+      <div class="product_index_box_content">
+        <%= product.name %><br />
+        <p>¥ <%= product.price %></p>
+      </div>  
+    </div>
+  <% else %>
+    <div class="product_show_box">
+      <div class="product_show_box_img">
+        <p>no image</p>
+        <!--%= image_tag image.image.url %-->
+      </div>
+      <div class="product_show_box_content">
+        <%= product.name %><br />
+        <p>¥ <%= product.price %></p><br />
+        <div class="description">
+          <%= product.description %>
+        </div>
+        <div class="order_box">
+          <%= render "products/product_order" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

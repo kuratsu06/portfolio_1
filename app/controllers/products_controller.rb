@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :side_bar, only: %i[ index show new edit create update]
 
   # GET /products or /products.json
   def index
@@ -8,6 +9,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @favorite = Favorite.new
   end
 
   # GET /products/new
@@ -23,7 +25,6 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
-    @categories = Category.where(ancestry: nil)
 
     respond_to do |format|
       if @product.save
@@ -65,8 +66,12 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def side_bar
+      @categories = Category.where(ancestry: nil)
+    end
+
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:category_id, :name, :price, :description, images_attributes: [:image])
+      params.require(:product).permit(:category_id, :name, :price, :description, images_attributes: [:image, :id])
     end
 end

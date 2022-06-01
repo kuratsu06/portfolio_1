@@ -2,21 +2,27 @@
   <%= render 'home/side_bar' %>
   <div class="main_content">
     <p class="notice"><%= notice %></p>
-    <div>
-      <% @categories.each do |category| %>
-        <div class="category_bar"><%= category.name %> <おすすめ商品></div>
-        <div>
-          <% category.products.shuffle.first(4).each do |product| %>
-            <div class="product_box">
-              <%= link_to product_path(product.id) do %>
-                <%= image_tag product.image.url %>
-                <%= product.name %>
-                <%= product.price %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+    <div class="category_box">
+      <div>
+        <% @categories.each do |category| %>
+          <div class="category_bar"><%= category.name %> <おすすめ商品></div>
+          <div class="product_bar">
+            <% category.products.shuffle.first(4).each do |product| %>
+              <div class="top_box">
+                <%= link_to product_path(product.id) do %>
+                  <div class="top_box_img">
+                    <%= image_tag product.image.url %>
+                  </div>
+                  <div class="top_box_content">
+                    <%= product.name %>
+                    <%= product.price %>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<div>
+</div>

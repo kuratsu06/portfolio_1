@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     devise_scope :user do
       get 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     end
-    resources :products
+    resources :products do
+      resource :favorites, only: [:create, :destroy]
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

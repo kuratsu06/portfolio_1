@@ -2,10 +2,15 @@
 	display: flex;
 }
 
+/* home/side_bar */
 .side_bar {
 	width: 30%;
 	min-height: 100vh;
 	border-right: 3px #000 solid;
+}
+
+.search {
+	margin: 20px auto;
 }
 
 .guide {
@@ -14,10 +19,6 @@
   text-align: center;
   background-color: #007700;
   padding: 10px;
-}
-
-.search {
-	margin: 20px auto;
 }
 
 .search_field {
@@ -56,10 +57,17 @@
   margin-left: 5px;
 }
 
+/* home/top */
 .main_content {
   width: 60%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.category_box {
+  display: grid;
+  grid-template-rows: 1fr;
+  row-gap: 20px;
 }
 
 .category_bar {
@@ -68,6 +76,19 @@
   padding-left: 20px;
 }
 
-.product_box {
+.product_bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+}
+
+.top_box {
+}
+
+.top_box_img {
+  background-color: #eee;
+}
+
+.top_box_content {
 
 }

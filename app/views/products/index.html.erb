@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <p style="color: green"><%= notice %></p>
+    <div class="product_title">
+      <h1>商品一覧</h1>
+      <p>全 <%= @products.count %> 件</p>
+    </div>
+    <div class="product_index">
+      <div id="products">
+        <% @products.each do |product| %>
+          <%= link_to product_path(product) do %>
+            <%= render product %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New product", new_product_path %>

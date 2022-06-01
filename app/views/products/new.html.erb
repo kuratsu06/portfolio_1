@@ -1,9 +1,14 @@
-<h1>New product</h1>
-
-<%= render "form", product: @product %>
-
-<br>
-
-<div>
-  <%= link_to "Back to products", products_path %>
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <div class="product_title">
+      <h1>新規登録</h1>
+    </div>
+    <div class="back">
+      <%= link_to "一覧に戻る", products_path %>
+    </div>
+    <div class="new_form">
+      <%= render "form", product: @product %>
+    </div>
+  </div>
 </div>
