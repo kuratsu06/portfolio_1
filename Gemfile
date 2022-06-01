@@ -55,6 +55,8 @@ gem 'devise-bootstrap-views'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'bootstrap-sass'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'ancestry'
 
 group :development, :test do

@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
+    <%= form.grouped_collection_select(:category_id, Category.roots.all, :children, :name, :id, :name) %>
   </div>
 
   <div>
@@ -29,6 +29,13 @@
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.fields_for :images do |image| %>
+      <%= image.file_field :image, multiple: true %>
+    <% end %>
   </div>
 
   <div>

@@ -3,13 +3,17 @@
   <div class="main_content">
     <p class="notice"><%= notice %></p>
     <div>
-      <% @categories.roots.each do |category| %>
+      <% @categories.each do |category| %>
         <div class="category_bar"><%= category.name %> <おすすめ商品></div>
-        <div class="product_box">
-          <%= link_to product_path(@product) do %>
-            <% category.products.shuffle.first(4).each do |product| %>
-              <%= product.name %>
-            <% end %>
+        <div>
+          <% category.products.shuffle.first(4).each do |product| %>
+            <div class="product_box">
+              <%= link_to product_path(product.id) do %>
+                <%= image_tag product.image.url %>
+                <%= product.name %>
+                <%= product.price %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
