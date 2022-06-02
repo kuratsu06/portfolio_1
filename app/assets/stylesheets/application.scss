@@ -56,7 +56,17 @@ a:hover {
   color: #000;
   text-decoration: none;
 }
- 
+
+.after_login {
+  display: flex;
+}
+
+.guest_name {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
 .login {
   color: #000;
   font-size: 20px;

@@ -1,0 +1,42 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <div class="user_menu">	
+		  <ul>
+      	<li>注文履歴<!--%= link_to "注文履歴", orders_path, class: "menu_btn" %--></li>
+      	<li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
+      	<li><%= link_to "レビュー 一覧", reviews_path, class: "menu_btn" %></li>
+    	</ul>
+    </div>
+    <div class="bookmark">
+      <h1>お気に入り 一覧</h1>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>価格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @favorites.count > 0 %>
+            <% @favorites.each do |favorite| %>
+              <tr>
+                <td class="favorite_img">
+                  <%= link_to product_path(favorite.product.id) do %>
+                    <p>no image</p>
+                    <!--%= image_tag favorite.product.image.url %-->
+                  <% end %>
+                </td>
+                <td><%= link_to favorite.product.name, product_path(favorite.product.id) %></td>
+                <td><span>¥ </span><%= link_to favorite.product.price, product_path(favorite.product.id) %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <td colspan="3">お気に入り商品はありません</td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
 
 /* home/side_bar */
 .side_bar {
-	width: 30%;
+	min-width: 30%;
 	min-height: 100vh;
 	border-right: 3px #000 solid;
 }
@@ -91,4 +91,139 @@
 
 .top_box_content {
 
+}
+
+/* plofile */
+.user_menu ul {
+  display: flex;
+}
+
+.user_menu li {
+  margin: 50px auto;
+  list-style: none;
+}
+
+.menu_btn {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ddd;
+  border: 2px #000 solid;
+  padding: 10px;
+}
+
+.user_menu li :visited {
+  color: #000;
+}
+
+.user_plofile_box {
+  min-width: 50%;
+  background-color: #eee;
+  border: 5px #eee solid;
+  margin: 20px auto;
+  padding: 40px 50px;
+}
+
+.user_plofile_box h1 {
+  text-align: center;
+}
+
+.user_plofile {
+  font-size: 18px;
+  margin: 30px 50px;
+  display: flex;
+}
+
+.user_plofile span {
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+.user_edit_page {
+  text-align: center;
+  margin: 30px;
+}
+
+.user_edit_page a {
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fff;
+  border: 2px #000 solid;
+  padding: 8px 10px;
+}
+
+.user_edit_page a:hover {
+  color: #000;
+}
+
+.user_destroy_actions {
+  text-align: center;
+  padding: 10px;
+}
+
+.user_destroy_actions h3 {
+  margin-bottom: 20px;
+}
+
+.user_destroy_actions a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f00;
+  border: 1px #f00 solid;
+  padding: 8px 20px;
+}
+
+.user_destroy_actions a:hover {
+  color: #fff;
+}
+
+.page_link {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+} 
+
+/* bookmark */
+.bookmark h1 {
+  text-align: center;
+}
+
+.bookmark table {
+  font-size: 18px;
+  width: 70%;
+  margin: 30px auto;
+  border: 3px #000 solid;
+}
+
+.bookmark th {
+  text-align: center;
+  background-color: #ddd;
+  border: 3px #000 solid;
+  padding: 10px 20px;
+}
+
+.bookmark td {
+  text-align: center;
+  border:  1px #000 solid;
+  padding: 10px 20px;
+}
+
+.bookmark td a,
+.bookmark td a:hover {
+  color: #000;
+}
+
+.favorite_img {
+  min-width: 150px;
+  height: 200px;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.favorite_img p {
+  color: #aaa;
+  text-align: center;
+  margin: auto;
 }

@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @favorite = Favorite.new
+    category = @product.category
+    @products = Product.where(category_id: category.id).where.not(id: @product.id).distinct
   end
 
   # GET /products/new

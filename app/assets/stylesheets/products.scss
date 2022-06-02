@@ -80,13 +80,8 @@
 }
 
 .show_back {
-  color: #000;
   font-size: 18px;
   margin: 10px;
-}
-
-.show_back :hover {
-  color: #000;
 }
 
 .product_show_box {
@@ -119,4 +114,33 @@
 
 .description {
   margin-top: 50px;
+}
+
+.related_title {
+  font-size: 18px;
+  margin: 20px;
+  padding: 20px 50px;
+  border-top: 3px #007700 solid;
+}
+
+.related {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+}
+
+.related_box {
+  
+}
+
+.related_box_img {
+  min-width: 150px;
+  height: 200px;
+  background-color: #eee;
+}
+
+.related_box_img p {
+  color: #aaa;
+  text-align: center;
+  margin: auto;
 }

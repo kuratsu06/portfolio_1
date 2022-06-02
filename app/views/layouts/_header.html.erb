@@ -9,7 +9,8 @@
           <div>
             <p class="guest_name">ようこそ、<%= current_user.name %>さん</p>
           </div>
-          <div class="link_user">
+          <div>
+            <%= link_to "会員情報", plofile_path, class: "login" %>
             <%= link_to "お買い物をやめる", destroy_user_session_path, method: :delete, class: "login" %>
           </div>
         </div>

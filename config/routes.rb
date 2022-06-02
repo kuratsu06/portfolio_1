@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope :portfolio_1 do
     root 'home#top'
+    get '/plofile', to: 'home#plofile'
+    get '/bookmark', to: 'home#bookmark'
     devise_for :users, controllers: {
       registrations: 'users/registrations',
       sessions: 'users/sessions',

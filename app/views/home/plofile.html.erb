@@ -1,0 +1,40 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <div class="user_menu">	
+		  <ul>
+      	<li>注文履歴<!--%= link_to "注文履歴", orders_path, class: "menu_btn" %--></li>
+      	<li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
+      	<li><%= link_to "レビュー 一覧", reviews_path, class: "menu_btn" %></li>
+    	</ul>
+		</div>
+  	<div class="user_plofile_box">
+    	<h1>アカウント情報</h1>
+    	<div class="user_plofile">
+      	<p>名前：</p><span><%= @user.name %></span>
+    	</div>
+    	<div class="user_plofile">
+    		<p>住所：</p><span><%= @user.address %></span>
+  		</div>
+  		<div class="user_plofile">
+      	<p>電話番号：</p><span><%= @user.phone %></span>
+    	</div>
+    	<div class="user_plofile">
+    		<p>メールアドレス：</p><span><%= @user.email %></span>
+  		</div>
+			<div class="user_plofile">
+				<p>パスワード：</p><span>******</span>
+			</div>
+    	<div class="user_edit_page">
+    		<%= link_to "登録内容の変更をしたい方はこちら", edit_user_registration_path, class: "user_edit_page" %> 
+  		</div>
+  		<div class="user_destroy_actions">
+			  <h3>会員情報を削除される方は下記のボタンを押してください</h3>
+      	<%= link_to "退会する", user_registration_path, method: :delete %>
+    	</div>
+    	<div class="page_link">
+    		<%= link_to "◀︎ トップページに戻る", root_path, class: "page_link" %>
+  		</div>
+		</div>
+	</div>
+</div>

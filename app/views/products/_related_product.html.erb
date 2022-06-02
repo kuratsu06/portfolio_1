@@ -1,0 +1,17 @@
+<p class="related_title">その他のおすすめ商品</p>
+<div class="related">
+  <% @products.shuffle.first(4).each do |product| %>
+    <div class="related_box">
+      <%= link_to product_path(product.id) do %>
+        <div class="related_box_img">
+          <p>no image</p>
+          <!--%= image_tag product.image.url %-->
+        </div>
+        <div>
+          <p><%= product.name %></p>
+          <p><%= product.price %> 円</p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

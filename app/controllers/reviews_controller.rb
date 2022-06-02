@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.where(user_id: current_user.id)
+    @categories = Category.where(ancestry: nil)
   end
 
   def new

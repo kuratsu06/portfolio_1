@@ -1,0 +1,46 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <div class="user_menu">	
+		  <ul>
+      	<li>注文履歴<!--%= link_to "注文履歴", orders_path, class: "menu_btn" %--></li>
+      	<li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
+      	<li><%= link_to "レビュー 一覧", reviews_path, class: "menu_btn" %></li>
+    	</ul>
+    </div>
+    <div class="bookmark">
+    	<h1>レビュー 一覧</h1>
+    	<table>
+      	<thead>
+        	<tr>
+          	<th></th>
+          	<th>商品名</th>
+          	<th>価格</th>
+						<th>レビュー</th>
+						<th>削除する</th>
+        	</tr>
+      	</thead>
+      	<tbody>
+        	<% if @reviews.count > 0 %>
+          	<% @reviews.each do |review| %>
+            	<tr>
+              	<td class="favorite_img">
+                	<%= link_to product_path(review.product.id) do %>
+                  	<p>no image</p>
+                  	<!--%= image_tag review.product.image.url %-->
+                	<% end %>
+              	</td>
+              	<td><%= link_to review.product.name, product_path(review.product.id) %></td>
+              	<td><span>¥ </span><%= link_to review.product.price, product_path(review.product.id) %></td>
+								<td><%= review.comment %></td>
+								<td><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+            	</tr>
+          	<% end %>
+        	<% else %>
+          	<td colspan="5">投稿はありません</td>
+        	<% end %>
+      	</tbody>
+    	</table>
+  	</div>
+	</div>
+</div>
