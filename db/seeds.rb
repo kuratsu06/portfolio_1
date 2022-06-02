@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.create!(name: "管理者", nickname: "管理者", address: "日本", phone: 1, email: "admin@example.com", password:  "111111", password_confirmation: "111111", admin: true)
+
 food = Category.create(name: "食品")
 food_1 = food.children.create(name: "米・雑穀・シリアル")
 food_2 = food.children.create(name: "麺類")

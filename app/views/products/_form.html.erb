@@ -2,7 +2,6 @@
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,35 +9,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.grouped_collection_select(:category_id, Category.roots.all, :children, :name, :id, :name) %>
-  </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :image, style: "display: block" %>
-    <%= form.fields_for :images do |image| %>
-      <%= image.file_field :image, multiple: true %>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="form_box">
+    <div class="form_field">
+      <%= form.label :category_id, "商品カテゴリ：", style: "display: block" %>
+      <%= form.grouped_collection_select(:category_id, Category.roots.all, :children, :name, :id, :name) %>
+    </div>
+    <div class="form_field">
+      <%= form.label :name, "商品名：", style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="form_field">
+      <%= form.label :price, "価格：", style: "display: block" %>
+      <%= form.number_field :price %>
+    </div>
+    <div class="form_field">
+      <%= form.label :description, "商品の説明：", style: "display: block" %>
+      <%= form.text_area :description %>
+    </div>
+    <div class="form_field">
+      <%= form.label :image, "画像：", style: "display: block" %>
+      <%= form.fields_for :images do |image| %>
+        <%= image.file_field :image, multiple: true %>
+      <% end %>
+    </div>
+    <div class="form_actions">
+      <% if (controller.action_name == 'new') %>
+        <%= form.submit "登録", class: "actions_btn" %>
+      <% else %>
+        <%= form.submit "更新", class: "actions_btn" %>
+      <% end %>
+    </div>
   </div>
 <% end %>

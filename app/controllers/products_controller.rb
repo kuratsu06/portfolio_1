@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :if_not_admin, only: %i[ new create edit destroy]
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :side_bar, only: %i[ index show new edit create update]
 
@@ -63,6 +64,10 @@ class ProductsController < ApplicationController
   end
 
   private
+    def if_not_admin
+      redirect_to root_path unless current_user.admin?
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])

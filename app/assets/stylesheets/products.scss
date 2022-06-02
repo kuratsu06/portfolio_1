@@ -144,3 +144,47 @@
   text-align: center;
   margin: auto;
 }
+
+/* new,edit */
+.product_new_title {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.back {
+  font-size: 18px;
+}
+
+.form_box {
+  border: 1px #000 solid;
+  margin: auto;
+  padding: 20px 50px;
+}
+
+.form_field {
+  font-size: 18px;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.form_field select,
+.form_field input,
+.form_field textarea {
+  min-width: 70%;
+  margin-left: auto;
+  padding: 6px 10px;
+}
+
+.form_actions {
+  margin-left: 80%;
+}
+
+.actions_btn {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #4169e1;
+  border: 1px #4169e1 solid;
+  padding: 6px 20px;
+}

@@ -2,6 +2,11 @@
   <div class="header_bar_left">
     <%= link_to "らくちんネット", root_path, class: "site_logo" %>
   </div>
+  <% if current_user&.admin? %>
+    <div class="admin_login">
+      <%= link_to "商品を新規登録する", new_product_path, class: "login" %>
+    </div>
+  <% end %>
   <div class="header_bar_right">
     <div class="user_login">
       <% if user_signed_in? %>
