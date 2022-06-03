@@ -7,4 +7,6 @@ class Product < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user).exists?
   end
+
+  has_many :items, dependent: :destroy
 end

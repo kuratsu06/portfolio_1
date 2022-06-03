@@ -2,7 +2,7 @@
   <div class="header_bar_left">
     <%= link_to "らくちんネット", root_path, class: "site_logo" %>
   </div>
-  <% if current_user&.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <div class="admin_login">
       <%= link_to "商品を新規登録する", new_product_path, class: "login" %>
     </div>

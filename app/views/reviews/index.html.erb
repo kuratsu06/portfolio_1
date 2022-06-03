@@ -1,6 +1,7 @@
 <div class="top_page">
   <%= render 'home/side_bar' %>
   <div class="main_content">
+    <p class="notice"><%= notice %></p>
     <div class="user_menu">	
 		  <ul>
       	<li>注文履歴<!--%= link_to "注文履歴", orders_path, class: "menu_btn" %--></li>
@@ -31,7 +32,7 @@
                 	<% end %>
               	</td>
               	<td><%= link_to review.product.name, product_path(review.product.id) %></td>
-              	<td><span>¥ </span><%= link_to review.product.price, product_path(review.product.id) %></td>
+              	<td><%= link_to review.product.price, product_path(review.product.id) %> 円</td>
 								<td><%= review.comment %></td>
 								<td><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
             	</tr>

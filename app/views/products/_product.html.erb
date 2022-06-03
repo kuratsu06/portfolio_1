@@ -7,7 +7,7 @@
       </div>
       <div class="product_index_box_content">
         <%= product.name %><br />
-        <p>¥ <%= product.price %></p>
+        <p><%= product.price %> 円</p>
       </div>  
     </div>
   <% else %>
@@ -18,12 +18,17 @@
       </div>
       <div class="product_show_box_content">
         <%= product.name %><br />
-        <p>¥ <%= product.price %></p><br />
+        <p><%= product.price %> 円</p><br />
         <div class="description">
           <%= product.description %>
         </div>
-        <div class="order_box">
-          <%= render "products/product_order" %>
+        <div class="cart_box">
+          <% if user_signed_in? %>
+            <%= button_to "カートに入れる", add_item_path(product_id: @product.id) %>
+          <% else %>
+            <p>購入するためにはログインをする必要があります</p>
+            <%= link_to "ログイン", new_user_session_path, class: "login_btn" %>
+          <% end %>
         </div>
       </div>
     </div>

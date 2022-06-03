@@ -18,4 +18,6 @@ class User < ApplicationRecord
       user.phone = "0"
     end
   end
+
+  has_one :cart, dependent: :destroy
 end

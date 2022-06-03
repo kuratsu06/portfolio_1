@@ -1,0 +1,50 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <p class="notice"><%= notice %></p>
+  	<div class="item">
+    	<h1>カート内の商品</h1>
+			<table>
+      	<thead>
+        	<tr>
+          	<th></th>
+          	<th>商品名</th>
+          	<th>価格</th>
+						<th>購入数</th>
+						<th>削除</th>
+        	</tr>
+      	</thead>
+				<tbody>
+					<% if @items.count > 0 %>
+						<% @items.each do |item| %>
+							<tr>
+              	<td class="favorite_img">
+                	<%= link_to product_path(item.product.id) do %>
+                  	<p>no image</p>
+                  	<!--%= image_tag item.product.image.url %-->
+                	<% end %>
+              	</td>
+								<td><%= link_to item.product.name, product_path(item.product.id) %></td>
+								<td><%= link_to item.product.price, product_path(item.product.id) %> 円</td>
+								<%= form_with(url: update_item_url, method: :post,local: true) do |f| %>
+									<td>
+										<%= f.hidden_field :product_id, value: item.product.id %>
+										<%= f.number_field :quantity ,value: item.quantity%><br />
+										<%= f.submit "変更" %>
+									</td>
+								<% end %>
+								<td><%= button_to "削除", delete_item_path(product_id: item.product.id), method: :delete, data: { confirm: "商品を削除しますか？" } %></td>					
+							</tr>
+          	<% end %>
+        	<% else %>
+          	<td colspan="5">カートに入れている商品はありません</td>
+        	<% end %>
+      	</tbody>
+    	</table>
+  	</div>
+		<div class="order_btn">
+			<h2><%= "合計金額：#{@total_price} 円" %></h2>
+			<!--%= link_to "購入画面へ", %--><p>購入画面へ</p> 
+		</div>
+	</div>
+</div>

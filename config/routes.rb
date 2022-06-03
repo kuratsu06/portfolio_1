@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :products do
       resource :favorites, only: [:create, :destroy]
     end
+    get '/my_cart', to: 'carts#show'
+    post '/add_item', to: 'carts#create'
+    post '/update_item', to: 'carts#update'
+    delete '/delete_item', to: 'carts#destroy'
     resources :reviews, only: [:index, :new, :create, :destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

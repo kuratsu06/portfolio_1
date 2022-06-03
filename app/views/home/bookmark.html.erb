@@ -29,7 +29,7 @@
                   <% end %>
                 </td>
                 <td><%= link_to favorite.product.name, product_path(favorite.product.id) %></td>
-                <td><span>¥ </span><%= link_to favorite.product.price, product_path(favorite.product.id) %></td>
+                <td><%= link_to favorite.product.price, product_path(favorite.product.id) %> 円</td>
               </tr>
             <% end %>
           <% else %>
