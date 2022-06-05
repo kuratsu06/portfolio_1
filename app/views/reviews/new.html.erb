@@ -1,0 +1,43 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+		<div class="product_new_title">
+			<h1>レビュー 新規作成</h1>
+		</div>
+		<div class="review_form">
+			<%= form_with model: @review do |form| %>
+				<div class="form_field">
+					<%= form.label "ニックネーム：", style: "display: block" %>
+					<div class="review_item">
+						<p><%= current_user.nickname %><span>様</span></p>
+					</div>
+				</div>
+				<div class="form_field">
+					<%= form.label "評価する商品：", style: "display: block" %>
+					<%= link_to product_path(@product) do %>
+						<div class="review_product">
+							<div class="review_img">
+								<p>no image</p>
+								<!--%= @product.images %-->
+							</div>
+							<div class="review_item">
+								<p>商品名：<%= @product.name %></p>
+								<p>価格：<%= @product.price %> 円</p>
+								<p><%= @product.description %></p>
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<div class="form_field">
+					<%= form.label :comment, "コメント：", style: "display: block" %>
+					<%= form.text_area :comment %>
+				</div>
+				<%= form.hidden_field :user_id, value: current_user.id %>
+				<%= form.hidden_field :product_id, value: @product.id %>
+				<div class="form_actions">
+					<%= form.submit "登録", class: "actions_btn" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

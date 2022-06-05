@@ -4,12 +4,12 @@
     <p class="notice"><%= notice %></p>
     <div class="user_menu">	
 		  <ul>
-      	<li>注文履歴<!--%= link_to "注文履歴", orders_path, class: "menu_btn" %--></li>
-      	<li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
+				<li><%= link_to "購入履歴", purchases_path, class: "menu_btn" %></li>
+				<li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
       	<li><%= link_to "レビュー 一覧", reviews_path, class: "menu_btn" %></li>
     	</ul>
     </div>
-    <div class="bookmark">
+    <div class="review">
     	<h1>レビュー 一覧</h1>
     	<table>
       	<thead>
@@ -34,7 +34,7 @@
               	<td><%= link_to review.product.name, product_path(review.product.id) %></td>
               	<td><%= link_to review.product.price, product_path(review.product.id) %> 円</td>
 								<td><%= review.comment %></td>
-								<td><%= link_to "削除", post, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+								<td><%= button_to "削除", review, method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
             	</tr>
           	<% end %>
         	<% else %>

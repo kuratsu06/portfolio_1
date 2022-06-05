@@ -7,18 +7,21 @@
         <% @categories.each do |category| %>
           <div class="category_bar"><%= category.name %> <おすすめ商品></div>
           <div class="product_bar">
-            <% category.products.shuffle.first(4).each do |product| %>
-              <div class="top_box">
-                <%= link_to product_path(product.id) do %>
-                  <div class="top_box_img">
-                    <%= image_tag product.image.url %>
-                  </div>
-                  <div class="top_box_content">
-                    <%= product.name %>
-                    <%= product.price %>
-                  </div>
-                <% end %>
-              </div>
+            <% category.children.each do |children| %>
+              <% children.products.each do |product| %>
+                <div class="top_box">
+                  <%= link_to product_path(product.id) do %>
+                    <div class="top_box_img">
+                      <p>no image</p>
+                      <!--%= image_tag product.image.url %-->
+                    </div>
+                    <div class="top_box_content">
+                      <%= product.name %>
+                      <p><%= product.price %> 円</p>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         <% end %>

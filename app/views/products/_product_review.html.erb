@@ -1,0 +1,7 @@
+<p class="related_title">こちらの商品のレビュー</p>
+<div class="review_box">
+	<% @product.reviews.each do |review| %>
+    <p>投稿者：<%= review.user.nickname %> 様</p>
+    <p>コメント：<%= review.comment %></p>
+  <% end %>
+</div>

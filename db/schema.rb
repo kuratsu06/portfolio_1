@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_03_023552) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_04_060356) do
   create_table "carts", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -45,11 +45,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_023552) do
   create_table "items", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "cart_id", null: false
-    t.integer "quantity", default: 0, null: false
+    t.integer "quantity", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_items_on_cart_id"
     t.index ["product_id"], name: "index_items_on_product_id"
+  end
+
+  create_table "orders", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "purchase_id", null: false
+    t.integer "quantity", null: false
+    t.integer "subtotal", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_orders_on_product_id"
+    t.index ["purchase_id"], name: "index_orders_on_purchase_id"
   end
 
   create_table "products", charset: "utf8mb3", force: :cascade do |t|
@@ -60,6 +71,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_023552) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "purchases", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "total_amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "reviews", charset: "utf8mb3", force: :cascade do |t|
@@ -96,7 +115,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_023552) do
   add_foreign_key "images", "products"
   add_foreign_key "items", "carts"
   add_foreign_key "items", "products"
+  add_foreign_key "orders", "products"
+  add_foreign_key "orders", "purchases"
   add_foreign_key "products", "categories"
+  add_foreign_key "purchases", "users"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
 end

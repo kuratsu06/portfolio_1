@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     post '/add_item', to: 'carts#create'
     post '/update_item', to: 'carts#update'
     delete '/delete_item', to: 'carts#destroy'
+    resources :purchases, only: [:index, :new, :create, :destroy]
     resources :reviews, only: [:index, :new, :create, :destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

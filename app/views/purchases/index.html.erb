@@ -1,0 +1,58 @@
+<div class="top_page">
+  <%= render 'home/side_bar' %>
+  <div class="main_content">
+    <div class="user_menu">	
+      <ul>
+        <li><%= link_to "購入履歴", purchases_path, class: "menu_btn" %></li>
+        <li><%= link_to "お気に入り 一覧", bookmark_path, class: "menu_btn" %></li>
+        <li><%= link_to "レビュー 一覧", reviews_path, class: "menu_btn" %></li>
+      </ul>
+    </div>
+    <div>
+    <p class="notice"><%= notice %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <div class="purchase">
+      <h1>購入履歴</h1>
+      <% if @purchases.count > 0 %>
+        <% @purchases.each do |purchase| %>
+          <div class="purchase_order">
+            <p>購入日：<%= purchase.created_at.strftime("%Y年%m月%d日 %H時%M分") %></p>
+            <p>合計金額：<%= purchase.total_amount %> 円</p>
+            <%= button_to "キャンセルする", purchase_path(purchase), method: :delete, data: { confirm: "商品を削除しますか？" } %>
+          </div>			
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>商品名</th>
+                <th>価格</th>
+                <th>購入数</th>
+                <th>レビュー</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% purchase.orders.each do |order| %>
+                <tr>
+                  <td class="favorite_img">
+                    <%= link_to product_path(order.product.id) do %>
+                      <p>no image</p>
+                      <!--%= image_tag order.product.image.url %-->
+                    <% end %>
+                  </td>
+                  <td><%= order.product.name %></td>
+                  <td><%= order.product.price %> 円</td>
+                  <td><%= order.quantity %></td>
+                  <td><%= link_to "商品を評価する", new_review_path(product_id: order.product.id), class: "review_btn" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      <% else %>
+        <p class="count">購入履歴はありません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

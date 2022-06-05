@@ -42,9 +42,9 @@
       	</tbody>
     	</table>
   	</div>
-		<div class="order_btn">
+		<div class="order">
 			<h2><%= "合計金額：#{@total_price} 円" %></h2>
-			<!--%= link_to "購入画面へ", %--><p>購入画面へ</p> 
+			<%= link_to "注文確認画面へ", new_purchase_path, class: "purchase_btn" %> 
 		</div>
 	</div>
 </div>

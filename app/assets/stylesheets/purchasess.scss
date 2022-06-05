@@ -1,0 +1,90 @@
+/* index */
+.purchase_order {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  background-color: #000;
+  border: 3px #000 solid;
+  margin-top: 30px;
+  padding: 10px;
+  display: flex;
+}
+
+.purchase_order p {
+  margin: auto 20px;
+}
+
+.purchase_order button {
+  color: #000;
+  background-color: #fff;
+  margin-left: 100px;
+}
+
+.count {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.review_btn {
+  background-color: #eee;
+  border: 1px #000 solid;
+  padding: 2px 5px;
+}
+
+/* new */
+.purchase h1 {
+  text-align: center;
+}
+  
+.purchase table {
+  font-size: 18px;
+  width: 100%;
+  margin: 30px auto;
+  border: 3px #000 solid;
+}
+  
+.purchase th {
+  text-align: center;
+  background-color: #ddd;
+  border: 3px #000 solid;
+  padding: 10px 20px;
+}
+  
+.purchase td {
+  text-align: center;
+  border:  1px #000 solid;
+  padding: 10px 20px;
+}
+  
+.purchase td a,
+.purchase td a:hover {
+  color: #000;
+}
+
+.post_information {
+  border-top: 3px #000 solid;
+  padding: 20px 50px;
+}
+
+.post_information span {
+  font-weight: bold;
+  width: 200px;
+  display: inline-block;
+}
+
+.order_information {
+  font-size: 18px;
+  justify-content: center;
+  margin: 20px auto;
+  display: flex;
+}
+
+.back_btn {
+  color: #000;
+  background-color: #eee;
+  border: 1px #000 solid;
+  margin-left: 50px; 
+  padding: 2px 5px;
+}

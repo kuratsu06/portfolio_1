@@ -1,15 +1,15 @@
 class ReviewsController < ApplicationController
 	before_action :authenticate_user! 
+  before_action :side_bar, only: %i[ index new create ]
 
   def index
     @reviews = Review.where(user_id: current_user.id)
-    @categories = Category.where(ancestry: nil)
   end
 
   def new
     @review = Review.new
     @user = User.find_by(params[:user_id])
-    @product = Product.find_by(params[:product_id])
+    @product = Product.find(params[:product_id])
   end
 
   def create
@@ -36,6 +36,10 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:user_id, :product_id, :nickname, :comment)
+      params.require(:review).permit(:user_id, :product_id, :comment)
+    end
+
+    def side_bar
+      @categories = Category.where(ancestry: nil)
     end
 end

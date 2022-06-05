@@ -15,7 +15,7 @@
   margin-left: auto;
 }
 
-.product_index {
+#products {
   margin: 50px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -151,7 +151,7 @@
 }
 
 .related_box {
-  
+
 }
 
 .related_box_img {
@@ -164,6 +164,16 @@
   color: #aaa;
   text-align: center;
   margin: auto;
+}
+
+.review_box {
+  margin-bottom: 30px;
+}
+
+.review_box p {
+  font-size: 18px;
+  border-bottom: 1px #ccc dashed;
+  margin: 10px 50px;
 }
 
 /* new,edit */

@@ -8,6 +8,9 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true, uniqueness: true
 
+  has_many :reviews, dependent: :destroy
+  has_one :cart, dependent: :destroy
+  has_many :purchases, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   def self.guest
@@ -18,6 +21,4 @@ class User < ApplicationRecord
       user.phone = "0"
     end
   end
-
-  has_one :cart, dependent: :destroy
 end
