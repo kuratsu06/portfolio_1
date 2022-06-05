@@ -23,10 +23,12 @@ class PurchasesController < ApplicationController
       	order.subtotal = item.product.price
       	order.save
     	end
+			flash[:notice] = "注文が確定しました"
     	redirect_to purchases_path
     	@items.destroy_all
   	else
     	@purchase = Purchase.new(purchase_params)
+			flash[:alert] = "注文が完了しませんでした"
     	render :new
   	end
 	end
@@ -44,6 +46,7 @@ class PurchasesController < ApplicationController
       redirect_to purchases_path
     else
       flash[:alert] = "申し訳ございません。注文が確定してから1時間を過ぎましたので、お電話にてご連絡ください"
+			redirect_to purchases_path
     end
   end
 

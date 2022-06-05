@@ -2,6 +2,9 @@
   <%= render 'home/side_bar' %>
   <div class="main_content">
     <p class="notice"><%= notice %></p>
+		<% if alert %>
+			<p class="alert"><%= alert %></p>
+		<% end %>
   	<div class="item">
     	<h1>カート内の商品</h1>
 			<table>

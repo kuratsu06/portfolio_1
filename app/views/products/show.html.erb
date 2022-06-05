@@ -2,6 +2,9 @@
   <%= render 'home/side_bar' %>
   <div class="main_content">
     <p class="notice"><%= notice %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <div class="product_show_title">
       <h2>- <%= @product.name %> -</h2>
       <div class='favorite_btn'>
