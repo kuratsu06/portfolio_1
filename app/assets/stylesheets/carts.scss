@@ -72,3 +72,9 @@
 .order a:hover {
   color: #fff;
 }
+
+@media screen and (max-width: 1023px) {
+  .order h2 {
+    padding-left: 0;
+  }
+}

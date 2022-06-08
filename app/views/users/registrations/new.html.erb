@@ -1,0 +1,40 @@
+<div class="user_register_box">
+  <h1>新規登録</h1>
+  <p class="user_guide">※ 全て入力してください</p>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="user_register_field">
+      <%= f.label :name, '名前：' %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "名前を入力してください" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :address, '住所：' %>
+      <%= f.text_field :address, placeholder: "住所を入力してください" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :phone, '電話番号（ハイフン不要）：' %>
+      <%= f.text_field :phone, placeholder: "電話番号を入力してください" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :email, 'メールアドレス：' %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレスを入力してください" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :password, 'パスワード（６文字以上）：' %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力してください(６文字以上)" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :password_confirmation, 'パスワード再確認：' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度同じパスワードを入力してください" %>
+    </div>
+    <div class="user_register_actions">
+      <%= f.submit "登録する" %>
+    </div>
+  <% end %>
+  <div class="other_page">
+    <%= link_to "すでに登録がお済みの方はこちら", new_user_session_path, class: "other_page" %>
+  </div>
+</div> 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get '/plofile', to: 'home#plofile'
     get '/bookmark', to: 'home#bookmark'
     devise_for :users, controllers: {
+      passwords: 'users/passwords',
       registrations: 'users/registrations',
       sessions: 'users/sessions',
     }

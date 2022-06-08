@@ -88,3 +88,18 @@
   margin-left: 50px; 
   padding: 2px 5px;
 }
+
+@media screen and (max-width: 1023px) {
+  .purchase_order {
+    text-align: center;
+    display: block;
+  }
+  
+  .purchase_order button {
+    margin: 10px auto;
+  }
+
+  .review_btn {
+    writing-mode: vertical-rl;
+  }
+}

@@ -108,6 +108,12 @@
   float: right;
 }
 
+.top_link {
+  font-size: 18px;
+  margin-bottom: 20px;
+  float: right;
+}
+
 /* plofile */
 .user_menu ul {
   display: flex;
@@ -241,4 +247,88 @@
   color: #aaa;
   text-align: center;
   margin: auto;
+}
+
+@media screen and (max-width: 639px) {
+  .side_bar,
+  .th_image,
+  .favorite_img {
+    display: none;
+  }
+
+  .main_content {
+    width: 90%;
+  }
+
+  .category_name,
+  .category_bar {
+    padding-left: 10px;
+  }
+
+  .product_name,
+  .user_edit_page {
+    margin: auto;
+  }
+
+  .product_bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user_menu ul {
+    padding-inline-start: 0;
+  }
+
+  .user_plofile_box {
+    padding: 40px 10px;
+  }
+
+  .user_plofile {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .user_plofile span {
+    float: right;
+  }
+
+  .bookmark table {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .main_content {
+    width: 80%;
+  }
+
+  .side_bar,
+  .th_image,
+  .favorite_img {
+    display: none;
+  }
+
+  .product_bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user_plofile_box {
+    padding: 40px 10px;
+  }
+
+  .user_plofile {
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .user_plofile span {
+    float: right;
+  }
+
+  .user_edit_page {
+    margin: auto;
+  }
+
+  .bookmark table {
+    width: 100%;
+  }
 }

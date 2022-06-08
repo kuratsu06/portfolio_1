@@ -104,16 +104,32 @@ a:hover {
   background-color: #000;
 }
  
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .header {
-    height: 150px;
+    height: 200px;
     text-align: center;
     display: block;
   }
  
   .header_bar_left,
   .header_bar_right {
-    margin: auto;
+    margin: 10px auto;
+  }
+
+  .guest_name {
+    display: none;
+  }
+
+  .admin_login {
+    margin-bottom: 30px;
+  }
+
+  .user_login {
+    margin: 30px;
+  }
+
+  .after_login {
+    display: block;
   }
 }
  

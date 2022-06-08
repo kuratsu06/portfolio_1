@@ -14,7 +14,7 @@
       <summary><div class="category_name"><%= category.name %></div></summary>
       <ul>
         <% category.children.each do |children| %>
-          <%= link_to products_path(children.products.ids) do %>
+          <%= link_to products_path(children_id: children.id) do %>
             <li class="product_name"><%= children.name %><span class="count">(<%= children.products.count %>)</span></li>
           <% end %>
         <% end %>

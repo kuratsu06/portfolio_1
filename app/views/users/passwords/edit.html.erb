@@ -1,0 +1,25 @@
+<div class="password_edit_box">
+  <h1 class="user_title">パスワードの変更</h1>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+    <div class="user_password_field">
+      <%= f.label :password, "新しいパスワード：" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "パスワードを入力してください(６文字以上)" %>
+    </div>
+    <div class="user_password_field">
+      <%= f.label :password_confirmation, "パスワード（確認用）：" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "もう一度同じパスワードを入力してください" %>
+    </div>
+    <div class="user_password_actions">
+      <%= f.submit "パスワードを変更する" %>
+    </div>
+  <% end %>
+  <div class="other_page">
+    <%= link_to "すでに登録がお済みの方はこちら", new_user_session_path, class: "other_page" %><br />
+    <%= link_to "まだ登録がお済みでない方はこちら", new_user_registration_path, class: "other_page" %>
+  </div>
+</div>

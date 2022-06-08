@@ -119,7 +119,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (1.1.0)
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
     devise-i18n-views (0.3.7)
@@ -370,7 +369,6 @@ DEPENDENCIES
   carrierwave
   debug
   devise
-  devise-bootstrap-views
   devise-i18n
   devise-i18n-views
   dotenv-rails

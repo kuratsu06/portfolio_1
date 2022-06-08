@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   before_action :side_bar, only: %i[ index new create ]
 	
 	def index
-		@purchases = Purchase.where(user_id: current_user.id)
+		@purchases = Purchase.where(user_id: current_user.id).order(created_at: :desc)
 	end
 
 	def new

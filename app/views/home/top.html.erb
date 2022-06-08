@@ -2,6 +2,9 @@
   <%= render 'home/side_bar' %>
   <div class="main_content">
     <p class="notice"><%= notice %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <div class="category_box">
       <div>
         <% @categories.each do |category| %>
@@ -23,6 +26,9 @@
                 </div>
               <% end %>
             <% end %>
+          </div>
+          <div class="top_link">
+            <%= link_to "商品一覧で見る", products_path(category_id: category.id) %>
           </div>
         <% end %>
       </div>

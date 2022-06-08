@@ -1,0 +1,22 @@
+<div class="user_password_box">
+  <h1>パスワードをお忘れですか？</h1>
+  <p class="user_guide">パスワードをリセットするメールを登録されたメールアドレス宛てに送ります<br />
+  届いたメールに記載された手順に従ってパスワードを再設定してください</p>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: user_password_path, html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="user_password_field">
+      <%= f.label :email, '登録したメールアドレス：' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください" %>
+    </div>
+    <div class="user_password_actions">
+      <%= f.submit "パスワード再設定用メールを送信する" %>
+    </div>
+  <% end %>
+  <div class="other_page">
+    <%= link_to "すでに登録がお済みの方はこちら", new_user_session_path, class: "other_page" %><br />
+    <%= link_to "まだ登録がお済みでない方はこちら", new_user_registration_path, class: "other_page" %>
+  </div>
+</div>

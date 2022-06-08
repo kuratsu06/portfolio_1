@@ -1,10 +1,169 @@
-.user_title {
-	margin-top: 50px;
+.user_guide {
+	font-size: 20px;
+	margin: 20px auto;
+}
+
+#error_explanation {
+	color: #f00;
+	background-color: #ffcccc;
+	padding: 2px 10px;
+}
+
+#error_explanation h2 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#error_explanation li {
+	color: #f00;
+	font-size: 18px;
+	list-style: none;
+	background-color: #ffcccc;
+}
+
+.other_page {
+	font-size: 18px;
+	margin: 20px auto;
+}
+
+/*passwords edit*/
+.password_edit_box {
+	width: 50%;
+	text-align: center;
+	border: 1px #000 solid;
+	margin: 50px auto;
+	padding: 40px;
+}
+
+/*passwords new*/
+.user_password_box,
+.user_login_box {
+	width: fit-content;
+	text-align: center;
+	border: 1px #000 solid;
+	margin: 50px auto;
+	padding: 40px;
+}
+
+.user_password_box h1,
+.user_register_box h1,
+.user_login_box h1 {
 	text-align: center;
 }
 
-.new_user,
-.form_group,
-.other_page {
-	margin: auto 500px;
+.user_password_field,
+.user_register_field,
+.user_login_field,
+.field_with_errors {
+	font-size: 18px;
+	align-items: center;
+	justify-content: center;
+	margin: 20px auto;
+	display: flex;
+}
+
+.user_password_field label,
+.user_register_field label,
+.user_login_field label,
+.field_with_errors label {
+	margin-right: auto;
+}
+
+.user_password_field input,
+.user_register_field input {
+	width: 60%;
+	margin-left: auto;
+	padding: 10px;
+}
+
+.user_password_field .field_with_errors input {
+	width: 400px;
+}
+
+.user_password_actions input,
+.user_register_actions input,
+.user_login_actions input {
+	color: #fff;
+	font-size: 18px;
+	background-color: #000;
+	border: 1px #000 solid;
+}
+
+/*registrations edit*/
+.must {
+	color: #fff;
+	background-color: #f00;
+	border: 1px #f00 solid;
+	margin-right: 10px;
+	padding: 3px 5px;
+}
+
+/*registrations new*/
+.user_register_box {
+	width: 60%;
+	text-align: center;
+	border: 1px #000 solid;
+	margin: 50px auto;
+	padding: 40px;
+}
+
+.user_register_field .field_with_errors input {
+	width: 350px;
+	margin-left: auto;
+}
+
+/*sessions*/
+.user_login_field input {
+	width: 70%;
+	margin-left: auto;
+	padding: 10px;
+}
+
+.guest_btn {
+	color: #fff;
+	font-size: 18px;
+	background-color: #000;
+	border: 1px #000 solid;
+	margin-left: 10px;
+	padding: 4px;
+}
+
+@media screen and (max-width: 639px) {
+	.password_edit_box,
+	.user_password_box,
+	.user_register_box,
+	.user_login_box {
+		width: 90%;
+	}
+
+	.user_password_field,
+	.user_register_field,
+	.user_login_field {
+		display: block;
+	}
+
+	.user_password_field input,
+	.user_register_field input,
+	.user_login_field input {
+		width: 100%;
+		font-size: 16px;
+	}
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+	.password_edit_box,
+	.user_password_box,
+	.user_register_box {
+		width: 80%;
+	}
+
+	.user_password_field,
+	.user_register_field {
+		display: block;
+	}
+
+	.user_password_field input,
+	.user_register_field input {
+		width: 100%;
+	}
 }

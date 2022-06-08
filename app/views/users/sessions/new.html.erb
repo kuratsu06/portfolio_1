@@ -1,0 +1,27 @@
+<div class="user_login_box">
+  <h1>ログイン</h1>
+  <p class="user_guide">登録した名前とパスワードを入力してください</p>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+    <div class="user_login_field">
+      <%= f.label :name, "名前：" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "名前を入力してください" %>
+    </div>
+    <div class="user_login_field">
+      <%= f.label :password, "パスワード：" %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力してください" %>
+    </div>
+    <div class="other_page">
+      <%= link_to "パスワードをお忘れの方はこちら", new_user_password_path %>
+    </div>
+    <div class="user_login_actions">
+      <%= f.submit "ログイン" %>
+      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :get, class: "guest_btn" %>
+    </div>
+  <% end %>
+  <div class="other_page">
+    <%= link_to "まだ登録がお済みでない方はこちら", new_user_registration_path, class: "other_page" %>
+  </div>
+</div> 

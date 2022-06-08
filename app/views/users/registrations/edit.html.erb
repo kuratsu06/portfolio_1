@@ -1,0 +1,50 @@
+<div class="user_register_box">
+  <h1>アカウント編集</h1>
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="user_register_field">
+      <%= f.label :name, "名前：" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :nickname, "ニックネーム：" %>
+      <%= f.text_field :nickname %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :address, "住所：" %>
+      <%= f.text_field :address %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :phone, "電話番号（ハイフン不要）：" %>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :email, "メールアドレス：" %>
+      <%= f.email_field :email, autocomplete: "email" %>
+    </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+    <div class="user_register_field">
+      <%= f.label :password, "新しいパスワード：" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "変更する場合のみ入力してください(６文字以上)" %>
+    </div>
+    <div class="user_register_field">
+      <%= f.label :password_confirmation, "新しいパスワード再確認：" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "変更する場合のみ入力してください" %>
+    </div> 
+    <div class="user_register_field">
+      <span class="must">必須</span><%= f.label :current_password, "現在のパスワード：" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在使用しているパスワードを入力してください" %>
+    </div> 
+    <div class="user_register_actions">
+      <%= f.submit "変更する" %>
+    </div>
+  <% end %>
+  <div class="other_page">
+    <%= link_to "前のページに戻る", :back, class: "other_page" %>
+  </div>
+</div>
