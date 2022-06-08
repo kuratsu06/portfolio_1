@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :cart_item, only: %i[create update destroy]
+  before_action :cart_item, only: %i(create update destroy)
 
   def show
     @items = current_cart.items.includes([:product])

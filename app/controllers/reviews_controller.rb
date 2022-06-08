@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 	before_action :authenticate_user! 
-  before_action :side_bar, only: %i[ index new create ]
+  before_action :side_bar, only: %i( index new create )
 
   def index
     @reviews = Review.where(user_id: current_user.id)

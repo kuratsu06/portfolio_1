@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :if_not_admin, only: %i[ new create edit destroy]
-  before_action :set_product, only: %i[ show edit update destroy ]
-  before_action :side_bar, only: %i[ index show new edit create update ]
+  before_action :if_not_admin, only: %i( new create edit destroy)
+  before_action :set_product, only: %i( show edit update destroy )
+  before_action :side_bar, only: %i( index show new edit create update )
 
   # GET /products or /products.json
   def index
