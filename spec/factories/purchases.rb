@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :purchase do
-    user { nil }
+    association :user
     total_amount { 1 }
   end
 end

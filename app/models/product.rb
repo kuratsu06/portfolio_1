@@ -11,7 +11,8 @@ class Product < ApplicationRecord
 
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  
+  validates_associated :images
+
   has_many :favorites, dependent: :destroy
 
   def favorited_by?(user)
