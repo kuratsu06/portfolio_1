@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def top
     @categories = Category.includes(:products).where(ancestry: nil)
-    products = Product.order(updated_at: :desc)
+    products = Product.order(updated_at: :desc).limit(4)
   end
 
   def plofile

@@ -33,10 +33,10 @@
       <% end %>
     </div>
     <div class="form_actions">
-      <% if (controller.action_name == 'new') %>
-        <%= form.submit "登録", class: "actions_btn" %>
-      <% else %>
+      <% if (controller.action_name == 'edit') %>
         <%= form.submit "更新", class: "actions_btn" %>
+      <% else %>
+        <%= form.submit "登録", class: "actions_btn" %>
       <% end %>
     </div>
   </div>

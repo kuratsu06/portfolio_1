@@ -1,6 +1,6 @@
 class Image < ApplicationRecord
-  validates :product_id, presence: true
-  validates :image, presence: true
+  # validates :product_id, presence: true
+  # validates :image, presence: true
 
   belongs_to :product
 

@@ -1,11 +1,20 @@
 class ProductsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
   before_action :if_not_admin, only: %i( new create edit destroy)
   before_action :set_product, only: %i( show edit update destroy )
   before_action :side_bar, only: %i( index show new edit create update )
 
   # GET /products or /products.json
   def index
-    @products = Product.search(params[:search])
+    if (params[:category_id]) 
+      category = Category.find(params[:category_id])
+      @products = Product.where(category_id: category.id)
+    elsif (params[:children_id])
+      category = Category.find(params[:children_id])
+      @products = Product.where(category_id: category.id)
+    else
+      @products = Product.search(params[:search])
+    end
   end
 
   # GET /products/1 or /products/1.json
